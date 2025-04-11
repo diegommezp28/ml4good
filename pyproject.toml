@@ -1,0 +1,57 @@
+[project]
+name = "ml4good"
+version = "0.1.0"
+description = "ML4Good Colombia April 2025"
+authors = [{ name = "Diego Gómez", email = "diego_gomezpolo@outlook.com" }]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets>=2.21.0",
+    "einops>=0.8.0",
+    "huggingface-hub[cli,torch]>=0.30.2",
+    "jupyter>=1.1.1",
+    "lightning[extra]>=2.5.1",
+    "loguru>=0.7.3",
+    "matplotlib>=3.10.1",
+    "mlflow>=2.21.3",
+    "numpy>=2.2.4",
+    "pandas>=2.2.3",
+    "polars>=1.27.0",
+    "pydantic>=2.11.3",
+    "pydantic-settings>=2.8.1",
+    "python-dotenv>=1.1.0",
+    "sae-lens>=1.0.0",
+    "scikit-learn>=1.6.1",
+    "scipy>=1.15.2",
+    "seaborn>=0.13.2",
+    "torch>=2.6.0",
+    "torchaudio>=2.6.0",
+    "torchvision>=0.21.0",
+    "transformer-lens>=1.19.0",
+    "typer>=0.12.5",
+    "wandb>=0.19.9",
+    "xgboost>=3.0.0",
+]
+
+[dependency-groups]
+dev = ["mypy>=1.15.0", "pytest>=8.3.5", "ruff>=0.11.5"]
+
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+fixable = ["ALL"]
+unfixable = []
+extend-select = ["I"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
