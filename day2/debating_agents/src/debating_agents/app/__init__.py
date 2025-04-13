@@ -1,0 +1,1 @@
+"""Debating Agents application package."""

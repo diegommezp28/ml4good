@@ -27,6 +27,7 @@ dependencies = [
     "torch>=2.6.0",
     "torchaudio>=2.6.0",
     "torchvision>=0.21.0",
+    "tqdm>=4.67.1",
     "transformer-lens>=1.19.0",
     "typer>=0.12.5",
     "wandb>=0.19.9",
@@ -55,3 +56,6 @@ skip-magic-trailing-comma = false
 line-ending = "auto"
 docstring-code-format = true
 docstring-code-line-length = "dynamic"
+
+[tool.uv.workspace]
+members = ["day2/debating_agents"]
