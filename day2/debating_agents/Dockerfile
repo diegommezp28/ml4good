@@ -17,4 +17,4 @@ COPY . .
 # Set PYTHONPATH to include the src directory
 ENV PYTHONPATH=/app/src
 
-CMD ["uvicorn", "debating_agents.app.main:app", "--host", "0.0.0.0", "--port", "8000"] 
+CMD ["sh", "-c", "uvicorn debating_agents.app.main:app --host 0.0.0.0 --port 8000 --reload & streamlit run src/debating_agents/app/streamlit_app.py --server.port=8501 --server.address=0.0.0.0"] 

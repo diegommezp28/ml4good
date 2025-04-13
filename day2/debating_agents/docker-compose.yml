@@ -4,23 +4,14 @@ services:
   app:
     build: .
     ports:
-      - "8000:8000"
+      - "8000:8000"  # FastAPI
+      - "8501:8501"  # Streamlit
     volumes:
       - .:/app
     environment:
       - ENVIRONMENT=development
       - PYTHONPATH=/app/src
     restart: unless-stopped
-    command: uvicorn debating_agents.app.main:app --host 0.0.0.0 --port 8000 --reload
-
-  streamlit:
-    build: .
-    ports:
-      - "8501:8501"
-    volumes:
-      - .:/app
-    environment:
-      - ENVIRONMENT=development
-      - PYTHONPATH=/app/src
-    restart: unless-stopped
-    command: streamlit run src/debating_agents/app/streamlit_app.py --server.port=8501 --server.address=0.0.0.0 
+    command: >
+      sh -c "uvicorn debating_agents.app.main:app --host 0.0.0.0 --port 8000 --reload &
+             streamlit run src/debating_agents/app/streamlit_app.py --server.port=8501 --server.address=0.0.0.0" 
